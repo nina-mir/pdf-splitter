@@ -238,3 +238,11 @@ fieldset:last-of-type {
   outline: 2px dotted var(--glossy-black);
   outline-offset: 2px;
 }
+
+
+.server-response{
+  text-align: center;
+  font-size: 3rem;
+  margin: 1rem;
+  font-weight: 400;
+}
