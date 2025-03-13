@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<title>Hello from Flask</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+<script defer src="/static/js/script.js" type="text/javascript"></script>
+
+<header class="main-heading">
+  <h1 class="title">PDF Splitter!</h1>
+  <ul>
+    <li>easy</li>
+    <li>fast</li>
+    <li class="free">FREE</li>
+  </ul>
+</header>
+
+<hr class="divider" />
+
+  <form class="form-controllers">
+    <div class="fields-wrapper">
+      <fieldset class="upload-form flex-field">
+        <legend id="upload-instructions" style="font-size: 0.9rem">
+          Only PDF files are allowed!
+        </legend>
+        <label for="pdf-upload"
+          >Select a PDF file
+          <input
+            required
+            type="file"
+            id="pdf-upload"
+            accept=".pdf, application/pdf"
+            aria-describedby="upload-instructions"
+          />
+        </label>
+      </fieldset>
+
+      <fieldset class="input-requirements flex-field">
+        <label for="num-files">
+          number of files
+          <input
+            type="number"
+            id="num-files"
+            name="num-files"
+            placeholder="1"
+            value=1
+          />
+        </label>
+        <label for="num-pages">
+          pages per file&nbsp;&nbsp;
+          <input
+            type="number"
+            id="num-pages"
+            name="num-pages"
+            placeholder="20"
+            value=20
+          />
+        </label>
+      </fieldset>
+    </div>
+    <input type="submit" class="submit-btn"/>
+  </form>
