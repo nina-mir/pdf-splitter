@@ -14,48 +14,36 @@
 
 <hr class="divider" />
 
-  <form class="form-controllers">
-    <div class="fields-wrapper">
-      <fieldset class="upload-form flex-field">
-        <legend id="upload-instructions" style="font-size: 0.9rem">
-          Only PDF files are allowed!
-        </legend>
-        <label for="pdf-upload"
-          >Select a PDF file
-          <input
-            required
-            type="file"
-            id="pdf-upload"
-            accept=".pdf, application/pdf"
-            aria-describedby="upload-instructions"
-          />
-        </label>
-      </fieldset>
+<form class="form-controllers">
+  <div class="fields-wrapper">
+    <fieldset class="upload-form flex-field">
+      <!-- <legend id="upload-instructions" style="font-size: 0.9rem">
+        PDF files only!
+      </legend> -->
+      <label for="pdf-upload" class="form-label file-input-label">Select a PDF file
+      </label>
+      <input required type="file" id="pdf-upload" accept=".pdf, application/pdf"
+        aria-describedby="upload-instructions" />
+    </fieldset>
 
-      <fieldset class="input-requirements flex-field">
-        <label for="num-files">
-          number of files
-          <input
-            type="number"
-            id="num-files"
-            name="num-files"
-            placeholder="1"
-            value=1
-          />
+    <fieldset class="input-requirements flex-field">
+      <div class="num-files">
+        <label for="num-files" class="form-label">
+          number of splits
         </label>
-        <label for="num-pages">
-          pages per file&nbsp;&nbsp;
-          <input
-            type="number"
-            id="num-pages"
-            name="num-pages"
-            placeholder="20"
-            value=20
-          />
+        <input type="number" id="num-files" name="num-files" placeholder="1" value="1" />
+      </div>
+      <div class="num-pages">
+        <label for="num-pages" class="form-label">
+          pages per split&nbsp;&nbsp;
         </label>
-      </fieldset>
-    </div>
-    <input type="submit" class="submit-btn"/>
-  </form>
+        <input type="number" id="num-pages" name="num-pages" placeholder="20" value="20" />
+      </div>
+    </fieldset>
+  </div>
+  <input type="submit" class="submit-btn" />
+</form>
 
-  <div><p class="server-response"></p></div>
+<div>
+  <p class="server-response"></p>
+</div>
