@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { PDFDocument } from "pdf-lib";
 import JSZip from "jszip";
 import { saveAs } from "file-saver";
+
 import PdfDropzone from "./PdfDropzone";
 import NumberInput from "./NumberInput";
 import ResponseMessage from "./ResponseMessage";
@@ -12,33 +13,9 @@ export default function SplitForm() {
   const [pagesPer, setPagesPer] = useState(20);
   const [message, setMessage] = useState("");
   const [activeInput, setActiveInput] = useState("numSplits");
-  const [pdfMetadata, setPdfMetadata] = useState(null);
 
   const handleFileAccepted = (selectedFile) => {
     setFile(selectedFile);
-  };
-
-  const handleFileChange = async (selectedFile) => {
-    setFile(selectedFile);
-
-    // Extract metadata
-    const arrayBuffer = await selectedFile.arrayBuffer();
-    const pdfDoc = await PDFDocument.load(arrayBuffer);
-
-    // console.log()
-
-    const metadata = {
-      fileName: selectedFile.name,
-      title: pdfDoc.getTitle(),
-      author: pdfDoc.getAuthor(),
-      subject: pdfDoc.getSubject(),
-      producer: pdfDoc.getProducer(),
-      creator: pdfDoc.getCreator(),
-      pageCount: pdfDoc.getPageCount(),
-      fileSize: (selectedFile.size / 1024 / 1024).toFixed(2) + " MB",
-    };
-
-    setPdfMetadata(metadata);
   };
 
   const handleSubmit = async (e) => {
@@ -68,7 +45,7 @@ export default function SplitForm() {
 
     const blob = await zip.generateAsync({ type: "blob" });
     saveAs(blob, "splits.zip");
-    setMessage("Done!");
+    setMessage("Done!✅");
   };
 
   return (
@@ -96,12 +73,13 @@ export default function SplitForm() {
           />
         </div>
       </div>
-      <div>
+      <div className="submit-wrapper">
         <button type="submit" className="submit-btn">
           <span>Split now!</span>
-          <img className="catSvg" src="/assets/cat-repo.svg" alt="icon" />
+          <img className="catSvg" src="assets/cat-repo.svg" alt="icon" />
         </button>
         <ResponseMessage message={message} />
+        
       </div>
     </form>
   );

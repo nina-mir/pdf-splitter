@@ -1,6 +1,7 @@
 // PdfDropzone.jsx - A reusable drag & drop + click PDF uploader with metadata display
 
-import React, { useCallback, useState, useEffect } from "react";
+import React, { useCallback, useState, useEffect, useMemo } from "react";
+
 import { useDropzone } from "react-dropzone";
 import { PDFDocument } from "pdf-lib";
 
@@ -42,10 +43,21 @@ export default function PdfDropzone({ onFileAccepted }) {
     [onFileAccepted]
   );
 
-  const { getRootProps, getInputProps, isDragActive } = useDropzone({
-    onDrop,
-    accept: { "application/pdf": [] },
-  });
+  // const { getRootProps, getInputProps, isDragActive } = useDropzone({
+  //   onDrop,
+  //   accept: { "application/pdf": [] },
+  // });
+
+  const dropzoneConfig = useMemo(
+    () => ({
+      onDrop,
+      accept: { "application/pdf": [] },
+    }),
+    [onDrop]
+  );
+
+  const { getRootProps, getInputProps, isDragActive } =
+    useDropzone(dropzoneConfig);
 
   return (
     <div className="upload-wrapper">
@@ -76,12 +88,11 @@ export default function PdfDropzone({ onFileAccepted }) {
               fontSize: "2rem",
               opacity: 0.2,
               pointerEvents: "none",
+              backgroundImage: `url('assets/bg_emojis.svg')`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
             }}
-          >
-            {Array.from({ length: 100 }).map((_, idx) => (
-              <span key={idx}>{idx % 2 === 0 ? "😸" : "✂️"}</span>
-            ))}
-          </div>
+          ></div>
         )}
 
         <div
@@ -103,7 +114,7 @@ export default function PdfDropzone({ onFileAccepted }) {
               <span className="dropzone-message">
                 <img
                   className="svgIcon"
-                  src={"src/assets/pdf-repo.svg"}
+                  src={"assets/pdf-repo.svg"}
                   alt="icon"
                 />
                 <span>
@@ -126,8 +137,8 @@ export default function PdfDropzone({ onFileAccepted }) {
       {metadata ? (
         isMobile ? (
           <p className="pdf-meta mobile-paragraph">
-            Title: {metadata?.fileName || "Unknown"} | Author:{" "}
-            {metadata?.author || "Unknown"} | Pages: {metadata?.pageCount} |
+            <strong>Title:</strong> {metadata?.fileName || "Unknown"} | <strong>Author:</strong>
+            {metadata?.author || "Unknown"} | <strong>Pages:</strong> {metadata?.pageCount} |
             Producer: {metadata?.producer || "Unknown"} | Creator:{" "}
             {metadata?.creator || "Unknown"} | File Size: {metadata?.fileSize}
           </p>

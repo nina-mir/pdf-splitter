@@ -5,4 +5,13 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   base: '/pdf-splitter/', // <-- Change this to your GitHub repo name
   plugins: [react()],
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom', 'pdf-lib', 'jszip', 'file-saver']
+        }
+      }
+    }
+  }
 })
