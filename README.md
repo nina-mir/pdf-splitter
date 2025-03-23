@@ -15,11 +15,11 @@ Welcome to the **PDF Splitter** React application! This project lets you **drag-
 
 This project's UI is inspired by a Helly Kitty color scheme!
 <div style="display: flex; gap: 0.25rem; font-size: 1.rem; color: white; text-align: center;">
-    <div style="width: 6rem; height: 10rem; background: #f5a3c8;">rouge pink</div>
-    <div style="width: 6rem; height: 10rem; background: #ed0d92;">fluorescent pink</div>
-    <div style="width: 6rem; height: 10rem; background: #0e000a;">glossy black</div>
-    <div style="width: 6rem; height: 10rem; background: #f2f1f2; color: black;">aragonite white</div>
-    <div style="width: 6rem; height: 10rem; background: #e9ca01; color: black;">wild honey</div>
+    <div style="width: 6rem; height: 10rem; background: #f5a3c8;">rouge pink `#f5a3c8`</div>
+    <div style="width: 6rem; height: 10rem; background: #ed0d92;">fluorescent pink `#ed0d92`</div>
+    <div style="width: 6rem; height: 10rem; background: #0e000a;">glossy black `#0e000a`</div>
+    <div style="width: 6rem; height: 10rem; background: #f2f1f2; color: black;">aragonite white `#f2f1f2`</div>
+    <div style="width: 6rem; height: 10rem; background: #e9ca01; color: black;">wild honey `#e9ca01`</div>
   </div>
 
 #### source https://color.adobe.com/o-Kitty-Colors-color-theme-6597853/
