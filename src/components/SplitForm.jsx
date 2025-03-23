@@ -99,7 +99,7 @@ export default function SplitForm() {
       <div>
         <button type="submit" className="submit-btn">
           <span>Split now!</span>
-          <img className="catSvg" src={"src/assets/cat-repo.svg"} alt="icon" />
+          <img className="catSvg" src="/assets/cat-repo.svg" alt="icon" />
         </button>
         <ResponseMessage message={message} />
       </div>
