@@ -48,7 +48,6 @@ By performing the splitting entirely in the browser, you avoid sending files to 
 - **pdf-lib**: PDF parsing and splitting  
 - **jszip**: Creating a ZIP file of PDF chunks  
 - **file-saver**: Prompt user to download the ZIP  
-- (Optional) Additional libraries you have used (like `vite-plugin-svgr`, etc.)
 
 ## Running the Project Locally
 
